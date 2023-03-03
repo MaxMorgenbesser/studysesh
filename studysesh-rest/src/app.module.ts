@@ -4,28 +4,27 @@ import { AppService } from './app.service';
 import { LoginModule } from './login/login.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-
+import { LoginEntity } from './login/login.entity';
 
 @Module({
-  imports: [LoginModule,
-  ConfigModule.forRoot({
-    isGlobal:true
-  }),
-  TypeOrmModule.forRoot({
-    type:"mysql",
-    host: process.env.HOST,
-    port: Number(process.env.PORT),
-    username: process.env.USERNAME,
-    password: process.env.PASSWORD, // replace with process.env
-    database: process.env.DATABASE,
-    autoLoadEntities:true,
-    synchronize:true
-  })],
+  imports: [
+    LoginModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: process.env.HOST,
+      port: Number(process.env.PORT),
+      username: process.env.USERNAME,
+      password: process.env.PASSWORD, // replace with process.env
+      database: process.env.DATABASE,
+      autoLoadEntities: true,
+      synchronize: true,
+      entities:[LoginEntity]
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-
-
-export class AppModule {
-  
-}
+export class AppModule {}

@@ -1,13 +1,17 @@
-import { Inject } from "@nestjs/common";
+import {  Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { user } from "src/CommonModels/user.model";
 import { Repository} from "typeorm";
-import { Login } from "./login.entity";
+import { LoginEntity } from "./login.entity";
 
 
+@Injectable()
 export class LoginRepository  {
+    query(arg0: {}) {
+        throw new Error('Method not implemented.');
+    }
     constructor(
-        @InjectRepository(Login)
+        @InjectRepository(LoginEntity)
             private repo:Repository<user>
         ){}
 }
