@@ -17,7 +17,7 @@ import { LoginEntity } from './login/login.entity';
       host: process.env.HOST,
       port: Number(process.env.PORT),
       username: process.env.USERNAME,
-      password: process.env.PASSWORD, // replace with process.env
+      password: process.env.PASSWORD, 
       database: process.env.DATABASE,
       autoLoadEntities: true,
       synchronize: true,

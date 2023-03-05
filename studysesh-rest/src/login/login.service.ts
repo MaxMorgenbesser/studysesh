@@ -20,9 +20,11 @@ async getUserById(id:string): Promise<LoginEntity> {
 }
 
 async signup (user:LoginEntity) {
+
     const newUser = this.loginRepository.create({
         ...user
     })
+
     await this.loginRepository.save(newUser)
     return newUser
 

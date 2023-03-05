@@ -12,8 +12,9 @@ export class LoginController {
   }
 
   @Post()
-  CreateUser(@Body('user') user:LoginEntity){
-    return this.loginService.signup(user)
+  CreateUser(@Body('user') user: LoginEntity) {
+    return this.loginService.signup(user);
   }
- 
+
+  
 }
