@@ -9,8 +9,8 @@ phases:
     commands:
       - yarn run build
   artifacts:
-  files:
-    - '**/*'
-  base-directory: base_dir
-  name: build-artifact-name
-  discard-paths: no
+    files:
+      - '**/*'
+    base-directory: base_dir
+    name: build-artifact-name
+    ßßdiscard-paths: no
