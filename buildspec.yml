@@ -13,4 +13,4 @@ artifacts:
     - '**/*'
   base-directory: base_dir
   name: build-artifact-name
-  ßßdiscard-paths: no
+  discard-paths: no
