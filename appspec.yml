@@ -4,16 +4,17 @@ files:
   -source: /studysesh-rest
   destination: /home/ec2-user/StudySesh-Backend
 hook:
-  ApplicationStop:
-    - location: scripts/application_stop.sh
-      timeout: 300
-      runas: ec2-user
   BeforeInstall:
-    - location: scripts/before_install.sh
+    - location: ./scripts/before_install.sh
       timeout: 300
       runas: ec2_user
+  ApplicationStop:
+    - location: ./scripts/application_stop.sh
+      timeout: 300
+      runas: ec2-user
+
   ApplicationStart:
-    - location: scripts/application_start.sh
+    - location: ./scripts/application_start.sh
       timeout: 300
       runas: ec2_user
 
