@@ -1,0 +1,8 @@
+#loginBackground {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to right, #160585, #352687, #4b4088, #5f5787, #726f84);
+    position: absolute;
+    
+
+}

@@ -1,0 +1,43 @@
+#container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#formContainer {
+    width: 30%;
+    height: 70%;
+    background-color: white;
+    z-index: 20;
+    box-shadow:10px 10px 10px 10px #4b4088;
+}
+
+#titleContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+#titleText {
+    font-family: sans-serif;
+
+}
+
+#signupInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10%;
+}
+
+.textInput{
+    width: 50%;
+    height: 5%;
+    margin-top: 5%;
+}
+
