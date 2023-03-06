@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - cd studysesh-rest
+      - echo Installing dependencies with yarn
+      - yarn
+  build:
+    commands:
+      - yarn run build
+
