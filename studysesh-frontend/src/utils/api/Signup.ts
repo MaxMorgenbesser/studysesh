@@ -4,7 +4,7 @@ import { SignupFormData } from '../../Models/User.Model'
 
 
 export const Signup = async (SignupData:SignupFormData) => {
-const response = axios.post('http://localhost:3000/login', {'user':{...SignupData}} )
+const response = axios.post(import.meta.env.VITE_API_URL + 'login', {'user':{...SignupData}} )
 return (await response).data
 
 }

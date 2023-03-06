@@ -1,0 +1,15 @@
+#container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#formContainer {
+    width: 30%;
+    height: 70%;
+    background-color: white;
+    z-index: 20;
+    box-shadow:10px 10px 10px 10px #4b4088;
+}

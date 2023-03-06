@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "../../css/Forms.css/SignupForm.css";
 
@@ -6,23 +7,34 @@ import { SignupFormData } from "../../Models/User.Model";
 import { Signup } from "../../utils/api/Signup";
 
 export const SignupForm = () => {
-const [formData,setFormData] =  useState<SignupFormData>({
-    userName:"toad",
-    email:"toad@gmail.com",
-    phoneNumber:"6314045493"
-})
-console.log(import.meta.env)
+  const [error, setError] = useState<string>();
+  const [checkPassword, setCheckPassword] = useState<string>();
+  const [formData, setFormData] = useState<SignupFormData>({
+    userName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+  });
 
-const submit = async () => {
-    console.log(import.meta.env.API_URL)
+  const submit = async () => {
     try {
-    const data = await Signup(formData)
-    console.log(data)
+      let missing: boolean = false;
+      Object.values(formData).map((value) => {
+        if (!value) {
+          setError("missing required fields");
+          missing = true;
+        }
+      });
+
+      if (missing) return;
+
+      const data = await Signup(formData);
+      setError('')
+      console.log(data);
+    } catch (err) {
+      console.error(err);
     }
-    catch(err){
-        console.error(err)
-    }
-}
+  };
   return (
     <>
       <div id="container">
@@ -31,20 +43,58 @@ const submit = async () => {
             <h1 id="titleText">StudySesh</h1>
           </div>
           <div id="signupInfo">
-            <input type="text" className="textInput" placeholder="username" />
-            <input type="text" className="textInput" placeholder="Password" />
             <input
               type="text"
               className="textInput"
+              placeholder="username"
+              onChange={(e) =>
+                setFormData({ ...formData, userName: e.target.value })
+              }
+            />
+            <input
+              type="password"
+              className="textInput"
+              placeholder="Password"
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+            />
+            <input
+              onChange={(e) => setCheckPassword(e.target.value)}
+              type="password"
+              className="textInput"
               placeholder="Re-type Password"
             />
-            <input type="text" className="textInput" placeholder="Email" />
             <input
+              type="text"
+              className="textInput"
+              placeholder="Email"
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+            <input
+              onChange={(e) =>
+                setFormData({ ...formData, phoneNumber: e.target.value })
+              }
               type="tel"
               className="textInput"
               placeholder="phone number"
             />
-            <button onClick={submit}><h1>test</h1></button>
+            <div id="buttonContainer">
+
+              <div>
+              <button onClick={submit} className="bottomButton">
+                <p className="buttonText">Signup</p>
+              </button>
+              </div>
+              <Link to={'login'}>
+              <button className="loginButton">
+                <p className="loginText">Login instead</p>
+              </button>
+              </Link>
+            </div>
+            {error && <p id='errorText'>{error}</p>}
           </div>
         </div>
       </div>

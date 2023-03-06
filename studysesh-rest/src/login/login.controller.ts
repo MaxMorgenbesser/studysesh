@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { login } from 'src/CommonModels/user.model';
 import { LoginEntity } from './login.entity';
 import { LoginService } from './login.service';
 
@@ -10,6 +11,11 @@ export class LoginController {
   GetById(@Param('id') id: string): Promise<LoginEntity> {
     return this.loginService.getUserById(id);
   }
+
+  @Get()
+    Log(@Body('user') user:login) {
+      return this.loginService.Login(user)
+    }
 
   @Post()
   CreateUser(@Body('user') user: LoginEntity) {

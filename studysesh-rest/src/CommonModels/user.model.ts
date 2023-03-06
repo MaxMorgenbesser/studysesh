@@ -5,3 +5,8 @@ export interface user {
     email:string;
     phoneNumber:string
 }
+
+export interface login {
+    password:string;
+    userName:string;
+}

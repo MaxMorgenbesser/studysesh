@@ -1,5 +1,11 @@
+import LoginBackground from "../../components/backgrounds/Login.Background"
+import LoginForm from "../../components/Forms/Login.Form"
+
 const Login = () => {
-    return <h1>Login page</h1>
+    return<>
+    <LoginBackground />
+    <LoginForm />
+    </>
 }
 
 export default Login

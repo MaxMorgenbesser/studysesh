@@ -8,7 +8,8 @@
 export interface SignupFormData {
     userName:string,
     email:string,
-    phoneNumber:string
+    phoneNumber:string,
+    password:string
 }
 
 export interface userPayload {
