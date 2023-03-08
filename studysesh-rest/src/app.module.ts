@@ -5,9 +5,13 @@ import { LoginModule } from './login/login.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { LoginEntity } from './login/login.entity';
+import { CardSetsModule } from './card-sets/card-sets.module';
+import { CardsetsController } from './card-sets/card-sets.controller';
+import { CardSetsEntity } from './card-sets/card-sets.entity';
 
 @Module({
   imports: [
+    CardSetsModule,
     LoginModule,
     ConfigModule.forRoot({
       isGlobal: true,
@@ -21,10 +25,11 @@ import { LoginEntity } from './login/login.entity';
       database: process.env.DATABASE,
       autoLoadEntities: true,
       synchronize: true,
-      entities:[LoginEntity]
+      entities:[LoginEntity,CardSetsEntity]
     }),
+   
   ],
-  controllers: [AppController],
+  controllers: [AppController,],
   providers: [AppService],
 })
 export class AppModule {}

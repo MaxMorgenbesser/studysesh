@@ -3,7 +3,7 @@ import { login } from 'src/CommonModels/user.model';
 import { LoginEntity } from './login.entity';
 import { LoginService } from './login.service';
 
-@Controller('login')
+@Controller('user')
 export class LoginController {
   constructor(private loginService: LoginService) {}
 
@@ -12,12 +12,12 @@ export class LoginController {
     return this.loginService.getUserById(id);
   }
 
-  @Get()
-    Log(@Body('user') user:login) {
+  @Post('/login')
+    Login(@Body('user') user:login) {
       return this.loginService.Login(user)
     }
 
-  @Post()
+  @Post('/signup')
   CreateUser(@Body('user') user: LoginEntity) {
     return this.loginService.signup(user);
   }
