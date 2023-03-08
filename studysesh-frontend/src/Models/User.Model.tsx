@@ -20,3 +20,7 @@ export interface userSelector {
     user:UserModel
 }
 
+export interface LoginModel {
+    username:string;
+    password:string;
+}
