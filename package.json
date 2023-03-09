@@ -1,0 +1,8 @@
+{
+  "name": "studysesh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MaxMorgenbesser/studysesh.git",
+  "author": "maxwell morgenbesser <maxwellmorgenbesser@gmail.com>",
+  "license": "MIT"
+}
