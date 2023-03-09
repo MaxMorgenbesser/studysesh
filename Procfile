@@ -1,0 +1,1 @@
+web: cd studysesh-rest && yarn run deploy
