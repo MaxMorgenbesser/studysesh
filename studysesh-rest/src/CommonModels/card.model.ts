@@ -9,5 +9,5 @@ export interface Cards {
 export interface Card {
   front: string;
   back: string;
-  cardSet:string;
+  cardset:string;
 }

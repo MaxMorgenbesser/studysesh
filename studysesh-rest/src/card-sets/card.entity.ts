@@ -2,13 +2,13 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class CardSetsEntity {
+export class CardEntity {
     @PrimaryGeneratedColumn('uuid')
         id:string;
     @Column()
-        ownedBy:string;
+        cardset:string
     @Column()
-        private:boolean;
+        front:string
     @Column()
-        name:string
+        back:string
 }
